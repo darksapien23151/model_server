@@ -1,0 +1,16 @@
+node {
+  name: "LogisticModelNode"
+  calculator: "PythonExecutorCalculator"
+  input_stream: "input_csv:input"
+  output_stream: "output_tensor:output"
+
+  options: {
+    [mediapipe.PythonExecutorCalculatorOptions.ext] {
+      module_path: "/models/iris_pipeline/ovmspythonmodel.py"
+      class_name: "OvmsPythonModel"
+    }
+  }
+}
+
+input_stream: "input_csv:input"
+output_stream: "output_tensor:output"
